@@ -140,7 +140,10 @@ class SmartPlug(SmartDevice):
 
         :return: True if device is on, False otherwise
         """
-        return bool(self.sys_info["relay_state"])
+        f = self.sys_info.get("relay_state")
+        if f is None:
+            _LOGGER.error("is_on via relay_state returned None")
+        return bool(f)
 
     def turn_on(self):
         """Turn the switch on.

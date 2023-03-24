@@ -82,7 +82,7 @@ class SmartStrip(SmartPlug):
         if isinstance(is_on, bool):
             return _state_for_bool(is_on)
 
-        print(is_on)
+        # print(is_on)
 
         return {k: _state_for_bool(v) for k, v in self.get_is_on().items()}
 
